@@ -13,6 +13,11 @@
                   <td>{{item.hobbyName}}</td>
                   <td>{{item.hobbyDescription}}</td>
               </tr>
+              <tr>
+                  <td v-if="items.length == 0">
+                      <h3>No hobies found</h3>
+                  </td>
+              </tr>
       </tbody>
   
   </table>
@@ -22,13 +27,23 @@
 export default {
      data(){
             return{
-                items: []
+                items: [
+                    {'id': 1, 'hobbyName': 'Music', 'hobbyDescription': 'My music hobby'}, 
+                    {'id': 2, 'hobbyName': 'Reading', 'hobbyDescription': 'My reading hobby'}
+                ],
+                vegetables: ['aloo', 'pyaaz', 'gobi'],
+                employee: {'firstName': 'Madhuri', 'lastName': 'Pandey'},
+                listEmployees: [
+                    {'firstName': 'Madhuri', 'lastName': 'Pandey', 'company': 'TCS'}, 
+                    {'firstName': 'Pooja', 'lastName': 'Pandey', 'company': 'TCS'}, 
+                    {'firstName': 'Rahul', 'lastName': 'Pandey', 'company': 'SCB'}
+                ]
             }
         },
     name: 'Index',
     mounted(){
         
-       this.fetchHobby();
+      // this.fetchHobby();
     },
  methods:{
      fetchHobby(){
